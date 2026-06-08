@@ -1,0 +1,21 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+echo "Loading .profile"
+
+# Shared environment for login + non-login bash shells.
+if [ -f "$HOME/.bash_env" ]; then
+    . "$HOME/.bash_env"
+fi
+
+# If running bash, include .bashrc for interactive setup.
+if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+fi

@@ -1,0 +1,46 @@
+gc() { git commit "$@"; }
+
+# review start: Unstage the last commit
+rsf() {
+  if [[ -z $(git status --porcelain) ]]; then
+    git reset HEAD^
+  else
+    echo "Error: Cannot reset - you have changes"
+  fi
+}
+c() { code "$@"; }
+ccost() { npx ccusage "${1:-daily}"; }
+
+# aliases
+alias ..='cd ..'
+alias zs='c ~/.local/share/chezmoi'
+alias m='micro'
+alias ms='micro ~/.profile'
+alias zsr='source ~/.bashrc'
+alias zsd='pushd ~/.local/share/chezmoi'
+
+# git
+alias gp='git pull origin --rebase'
+alias gpush='git push origin main'
+alias gl='git log --color=always HEAD main origin/main -20 --pretty=format:"%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(yellow)%d%Creset" --abbrev-commit --abbrev=8 -- . | nl -w2 -s" "'
+alias gs='git status .'
+alias gd='git diff HEAD -- .'
+alias ga='git add . && git commit --amend --no-edit'
+alias gsh='git show HEAD -- .'
+# graphite
+alias gtg='gt get'
+alias gts='gt submit'
+alias gtss='gt submit --stack'
+alias gtr='gt restack'
+alias gtu='gtg && gts'
+alias gls='gt log short'
+
+# review end: Commit with the original commit message
+alias ref='git commit -C ORIG_HEAD'
+
+# eza
+alias ls='eza -a -l --no-user --no-permissions --smart-group --group-directories-first --icons --git'
+alias lst='ls --tree'
+
+alias zad='zellij attach dev'
+alias cm='chezmoi'

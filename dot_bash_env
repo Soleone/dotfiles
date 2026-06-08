@@ -1,0 +1,42 @@
+# Shared environment for login and interactive shells.
+# Safe to source multiple times.
+if [ -n "${SOLEONE_BASH_ENV_LOADED:-}" ]; then
+  return
+fi
+SOLEONE_BASH_ENV_LOADED=1
+
+echo "Initializing env variables"
+
+export EDITOR="micro"
+export SPEAK_COMMAND="koko"
+
+# personal
+export PI="~/.pi/agent"
+export DATA="$HOME/data"
+export SRC="$HOME/src"
+export TRY_PATH="$SRC/tries"
+export TRY_PROJECTS="$SRC"
+export NVM_DIR="$HOME/.nvm"
+
+# pnpm
+export PNPM_HOME="/home/soleone/.local/share/pnpm"
+
+# secrets (local machine only)
+if [ -f "$HOME/.bash_secrets" ]; then
+  . "$HOME/.bash_secrets"
+fi
+
+# PATH
+path_prepend(){
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) PATH="$1${PATH:+:$PATH}" ;;
+  esac
+}
+
+[ -d "$HOME/bin" ] && path_prepend "$HOME/bin"
+[ -d "$HOME/.local/bin" ] && path_prepend "$HOME/.local/bin"
+[ -d "$PNPM_HOME/bin" ] && path_prepend "$PNPM_HOME/bin"
+
+export PATH
+unset -f path_prepend

@@ -1,0 +1,41 @@
+[user]
+  name = Soleone
+  email = dev@soleone.xyz
+[push]
+  default = current
+[color]
+  ui = auto
+[alias]
+  co = checkout
+  pf = push --force-with-lease
+  st = status
+  br = branch
+  rb = rebase
+  wt = worktree
+[core]
+  editor = cursor -w
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[merge]
+  ff = only
+[fetch]
+  prune = true
+[include]
+  path = ~/.gitconfig.local
+[commit]
+	# gpgSign = true
+[gpg]
+	# program = /opt/homebrew/bin/gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+[remote]
+	pushDefault = origin
+[pull]
+	default = current
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
