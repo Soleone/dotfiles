@@ -17,6 +17,7 @@ export SRC="$HOME/src"
 export TRY_PATH="$SRC/tries"
 export TRY_PROJECTS="$SRC"
 export NVM_DIR="$HOME/.nvm"
+export GITHUB_USERNAME="Soleone"
 
 # pnpm
 export PNPM_HOME="/home/soleone/.local/share/pnpm"
