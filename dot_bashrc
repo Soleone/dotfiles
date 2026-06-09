@@ -128,4 +128,8 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Ruby
+command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+eval "$(try init)"
+
 command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
