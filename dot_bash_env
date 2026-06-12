@@ -7,7 +7,7 @@ SOLEONE_BASH_ENV_LOADED=1
 
 echo "Initializing env variables"
 
-export EDITOR="micro"
+export EDITOR="hx"
 export SPEAK_COMMAND="koko"
 
 # personal

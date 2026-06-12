@@ -13,9 +13,10 @@
   rb = rebase
   wt = worktree
 [core]
-  editor = cursor -w
+  editor = hx
   excludesfile = ~/.gitignore
   autocrlf = input
+  pager = hunk pager
 [merge]
   ff = only
 [fetch]
