@@ -139,7 +139,7 @@
         bind "Alt right" { GoToNextTab; }
         bind "Alt down" { SwitchFocus; }
         bind "Alt c" { NewTab; }
-        bind "Alt x" { CloseTab; }
+        bind "Alt Shift x" { CloseTab; }
         bind "Alt q" { Detach; }
         bind "Alt n" { NewPane "right"; SwitchToMode "normal"; }
     }
