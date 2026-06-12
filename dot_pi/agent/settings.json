@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.78.1",
+  "lastChangelogVersion": "0.79.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "low",
@@ -7,6 +7,11 @@
     "npm:@soleone/pi-tasks",
     "npm:@baggiiiie/pi-rtk-rewrite",
     "npm:@marckrenn/pi-sub-bar",
+    "git:https://github.com/hasit/pi-community-themes",
+    "npm:pi-web-access",
+    "npm:pi-subagents",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
     "git:https://github.com/hasit/pi-community-themes"
   ]
 }
