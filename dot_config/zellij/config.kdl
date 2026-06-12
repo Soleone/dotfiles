@@ -134,13 +134,14 @@
         }
     }
     shared {
-    	bind "Alt t" { SwitchToMode "renametab"; TabNameInput 0; }
+    	bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "Alt left" { GoToPreviousTab; }
         bind "Alt right" { GoToNextTab; }
         bind "Alt down" { SwitchFocus; }
         bind "Alt c" { NewTab; }
         bind "Alt x" { CloseTab; }
         bind "Alt q" { Detach; }
+        bind "Alt n" { NewPane "right"; SwitchToMode "normal"; }
     }
     shared_except "locked" {
         bind "Alt up" { MoveFocus "up"; }
@@ -184,7 +185,7 @@
     shared_except "locked" "resize" {
         bind "Ctrl n" { SwitchToMode "resize"; }
     }
-    shared_except "normal" "locked" "entersearch" {
+    shared_except "normal" "locked" "entersearch" "renametab" {
         bind "enter" { SwitchToMode "normal"; }
     }
     shared_except "normal" "locked" "entersearch" "renametab" "renamepane" {
@@ -217,6 +218,7 @@
         bind "enter" { SwitchToMode "search"; }
     }
     renametab {
+        bind "enter" { SwitchToMode "locked"; }
         bind "esc" { UndoRenameTab; SwitchToMode "tab"; }
     }
     shared_among "renametab" "renamepane" {
