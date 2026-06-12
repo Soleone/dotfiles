@@ -15,17 +15,14 @@ if [ -f "$HOME/.bash_env" ]; then
     . "$HOME/.bash_env"
 fi
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
+# History optimization
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+export HISTCONTROL=ignoreboth:erasedups
+export HISTTIMEFORMAT="%F %T "
+shopt -s cmdhist
+shopt -s lithist
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -132,6 +129,6 @@ fi
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 eval "$(try init)"
 
-eval "$(zoxide init bash)"
-
 command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
+
+eval "$(zoxide init bash)"
