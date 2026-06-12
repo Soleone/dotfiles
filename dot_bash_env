@@ -11,7 +11,7 @@ export EDITOR="hx"
 export SPEAK_COMMAND="koko"
 
 # personal
-export PI="~/.pi/agent"
+export PI="$HOME/.pi/agent"
 export DATA="$HOME/data"
 export SRC="$HOME/src"
 export TRY_PATH="$SRC/tries"
