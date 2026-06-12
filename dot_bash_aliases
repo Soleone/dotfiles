@@ -44,3 +44,4 @@ alias lst='ls --tree'
 
 alias zad='zellij attach dev'
 alias cm='chezmoi'
+alias bat='batcat'
