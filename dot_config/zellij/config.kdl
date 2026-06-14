@@ -141,7 +141,7 @@
         bind "Alt c" { NewTab; }
         bind "Alt Shift x" { CloseTab; }
         bind "Alt q" { Detach; }
-        bind "Alt n" { NewPane "right"; SwitchToMode "normal"; }
+        bind "Alt n" { NewPane "right"; }
     }
     shared_except "locked" {
         bind "Alt up" { MoveFocus "up"; }
@@ -276,8 +276,25 @@ plugins {
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
+
 load_plugins {
+    "file:~/.config/zellij/plugins/zellij-attention.wasm" {
+        // All options are optional — defaults shown
+        enabled "true"
+        thinking_icon "●"
+        bash_icon "⚡"
+        read_icon "◉"
+        edit_icon "✎"
+        subagent_icon "⊜"
+        web_icon "◈"
+        other_icon "⚙"
+        waiting_icon "▶"
+        completed_icon "✓"
+        idle_icon "○"
+        clear_on_tab_focus "true"
+    }
 }
+
 web_client {
     font "monospace"
 }
