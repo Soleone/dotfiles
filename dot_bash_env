@@ -38,6 +38,8 @@ path_prepend(){
 [ -d "$HOME/bin" ] && path_prepend "$HOME/bin"
 [ -d "$HOME/.local/bin" ] && path_prepend "$HOME/.local/bin"
 [ -d "$PNPM_HOME/bin" ] && path_prepend "$PNPM_HOME/bin"
+[ -d "$SRC/bin" ] && path_prepend "$SRC/bin"
+[ -d "$HOME/.cargo/bin" ] && path_prepend "$HOME/.cargo/bin"
 
 export PATH
 unset -f path_prepend
