@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.79.2",
+  "lastChangelogVersion": "0.79.3",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "low",
@@ -15,6 +15,7 @@
     "git:https://github.com/hasit/pi-community-themes",
     "npm:pi-boomerang",
     "npm:pi-side-chat",
-    "git:github.com/nicobailon/visual-explainer"
+    "git:github.com/nicobailon/visual-explainer",
+    "npm:@amaster.ai/pi-image-gen"
   ]
 }
