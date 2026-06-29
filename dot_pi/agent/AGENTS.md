@@ -17,6 +17,3 @@ Expected variables in bash environment:
   - $DATA/plans: agent output to prepare a task to be worked off, potentially for a fresh session so requiring detailed context.
   - $DATA/handoffs: named similar to bookmarks. user can ask to create handoffs that will store the important info and goals and learnings from a session, like an optimized auto-compact, so that in another session the user can start from the handoff file and seamlessly continue the session with a much smaller context window.  
 
-### Code search
-
-Use CodeMapper via the cm cli tool for tree sitter based code reading and exploring. See cm —help for usage.
