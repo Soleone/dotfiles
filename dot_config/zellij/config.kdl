@@ -135,9 +135,12 @@
     }
     shared {
     	bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
-        bind "Alt left" { GoToPreviousTab; }
-        bind "Alt right" { GoToNextTab; }
-        bind "Alt down" { SwitchFocus; }
+        bind "Alt Shift left" { GoToPreviousTab; }
+        bind "Alt Shift right" { GoToNextTab; }
+        bind "Alt down" { MoveFocus "down"; }
+        bind "Alt up" { MoveFocus "up"; }
+        bind "Alt left" { MoveFocus "left"; }
+        bind "Alt right" { MoveFocus "right"; }
         bind "Alt c" { NewTab; }
         bind "Alt Shift x" { CloseTab; }
         bind "Alt q" { Detach; }
