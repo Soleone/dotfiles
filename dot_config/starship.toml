@@ -3,10 +3,9 @@
 format = """
 [](color_yellow)\
 $directory\
-[](fg:color_yellow bg:color_aqua)\
-$git_branch\
-$git_status\
-[](fg:color_aqua bg:color_blue)\
+${custom.git_clean}\
+${custom.git_dirty}\
+${custom.no_git}\
 $c\
 $cpp\
 $rust\
@@ -20,6 +19,37 @@ $python\
 [](fg:color_blue)"""
 
 palette = 'gruvbox_dark'
+
+# Git is rendered as custom mutually-exclusive full segments so the branch,
+# status area, and both powerline dividers all share the same color.
+# Clean repo: aqua. Dirty repo: orange. No repo: direct path -> tools divider.
+[custom.git_clean]
+when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -z "$(git status --porcelain)"'
+command = '''
+branch=$(git branch --show-current 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+printf " %s " "$branch"
+'''
+format = '[](fg:color_yellow bg:color_aqua)[ $output ](fg:color_fg0 bg:color_aqua)[](fg:color_aqua bg:color_blue)'
+
+[custom.git_dirty]
+when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -n "$(git status --porcelain)"'
+command = '''
+branch=$(git branch --show-current 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+status=$(git status --porcelain 2>/dev/null)
+marks=""
+printf "%s" "$status" | grep -qE "(^| )M" && marks="${marks}*"
+printf "%s" "$status" | grep -qE "^\?\?" && marks="${marks}*"
+printf "%s" "$status" | grep -qE "(^| )D" && marks="${marks}✘"
+printf "%s" "$status" | grep -qE "^R" && marks="${marks}»"
+git rev-parse --verify refs/stash >/dev/null 2>&1 && marks="${marks}≡"
+printf " %s %s " "$branch" "$marks"
+'''
+format = '[](fg:color_yellow bg:color_orange)[ $output](fg:color_fg0 bg:color_orange)[](fg:color_orange bg:color_blue)'
+
+[custom.no_git]
+when = '! git rev-parse --is-inside-work-tree >/dev/null 2>&1'
+command = 'printf ""'
+format = '[](fg:color_yellow bg:color_blue)'
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
@@ -59,8 +89,8 @@ style = "bg:color_aqua"
 format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [git_status]
-style = "bg:color_aqua"
-format = '[[$all_status$ahead_behind ](fg:color_fg0 bg:color_aqua)]($style)'
+style = "bg:color_orange"
+format = '[[$all_status$ahead_behind ](fg:color_fg0 bg:color_orange)]($style)'
 modified = "*"
 untracked = "*"
 deleted = "✘"
