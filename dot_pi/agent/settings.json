@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.80.2",
+  "lastChangelogVersion": "0.84.0",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "low",
+  "defaultModel": "gpt-5.6-sol",
+  "defaultThinkingLevel": "medium",
   "pi-image-gen": {
     "defaultModel": "gpt-image-2"
   },
@@ -19,10 +19,21 @@
     "npm:pi-side-chat",
     "git:github.com/nicobailon/visual-explainer",
     "npm:@amaster.ai/pi-image-gen",
-    "npm:pi-lmstudio"
+    "npm:pi-lmstudio",
+    "npm:@shift-labs/pi-rlm"
   ],
   "enabledModels": [
-    "openai-codex/gpt-5.5",
-    "lmstudio/gemma-4-12b-agentic-fable5-composer2.5-v2-3.5x-tau2"
-  ]
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra"
+  ],
+  "theme": "catppuccin-mocha",
+  "piDiary": {
+    "dailyNotesDir": "/mnt/d/data/obsidian-vault/_journals"
+  },
+  "fullscreenScrollbar": "auto",
+  "tuiMode": "regular",
+  "compaction": {
+    "enabled": true
+  }
 }
