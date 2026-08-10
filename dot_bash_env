@@ -22,6 +22,9 @@ export GITHUB_USERNAME="Soleone"
 # pnpm
 export PNPM_HOME="/home/soleone/.local/share/pnpm"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+
 # secrets (local machine only)
 if [ -f "$HOME/.bash_secrets" ]; then
   . "$HOME/.bash_secrets"
@@ -40,6 +43,7 @@ path_prepend(){
 [ -d "$PNPM_HOME/bin" ] && path_prepend "$PNPM_HOME/bin"
 [ -d "$SRC/bin" ] && path_prepend "$SRC/bin"
 [ -d "$HOME/.cargo/bin" ] && path_prepend "$HOME/.cargo/bin"
+[ -d "$BUN_INSTALL/bin" ] && path_prepend "$BUN_INSTALL/bin"
 
 export PATH
 unset -f path_prepend
