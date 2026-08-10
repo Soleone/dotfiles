@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.84.0",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
+  "defaultProvider": "qwen-token-plan",
+  "defaultModel": "qwen3.8-max",
   "defaultThinkingLevel": "medium",
   "pi-image-gen": {
     "defaultModel": "gpt-image-2"
@@ -25,7 +25,12 @@
   "enabledModels": [
     "openai-codex/gpt-5.6-luna",
     "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-terra"
+    "openai-codex/gpt-5.6-terra",
+    "deepseek/deepseek-v4-flash",
+    "deepseek/deepseek-v4-pro",
+    "qwen-token-plan/qwen3.8-max",
+    "qwen-token-plan/glm-5.2",
+    "qwen-token-plan/deepseek-v4-flash-0731"
   ],
   "theme": "catppuccin-mocha",
   "piDiary": {
