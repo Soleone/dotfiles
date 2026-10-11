@@ -19,6 +19,13 @@ export TRY_PROJECTS="$SRC"
 export NVM_DIR="$HOME/.nvm"
 export GITHUB_USERNAME="Soleone"
 
+# pi-annotate wsl
+export PI_ANNOTATE_WSL_BRIDGE=127.0.0.1:43173
+
+# ----
+# PATH
+#-----
+
 # pnpm
 export PNPM_HOME="/home/soleone/.local/share/pnpm"
 
@@ -30,6 +37,9 @@ if [ -f "$HOME/.bash_secrets" ]; then
   . "$HOME/.bash_secrets"
 fi
 
+# pi tasks cli
+export PIT_HOME="/home/soleone/src/products/pi-tasks-cli"
+
 # PATH
 path_prepend(){
   case ":$PATH:" in
@@ -40,10 +50,12 @@ path_prepend(){
 
 [ -d "$HOME/bin" ] && path_prepend "$HOME/bin"
 [ -d "$HOME/.local/bin" ] && path_prepend "$HOME/.local/bin"
+[ -d "$PNPM_HOME" ] && path_prepend "$PNPM_HOME"
 [ -d "$PNPM_HOME/bin" ] && path_prepend "$PNPM_HOME/bin"
 [ -d "$SRC/bin" ] && path_prepend "$SRC/bin"
 [ -d "$HOME/.cargo/bin" ] && path_prepend "$HOME/.cargo/bin"
 [ -d "$BUN_INSTALL/bin" ] && path_prepend "$BUN_INSTALL/bin"
+[ -d "$PIT_HOME/bin" ] && path_prepend "$PIT_HOME/bin"
 
 export PATH
 unset -f path_prepend
