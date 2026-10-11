@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.84.0",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-flash",
-  "defaultThinkingLevel": "high",
+  "lastChangelogVersion": "1.1.0",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6-luna",
+  "defaultThinkingLevel": "max",
   "pi-image-gen": {
     "defaultModel": "gpt-image-2"
   },
@@ -17,27 +17,51 @@
     "npm:pi-boomerang",
     "npm:pi-side-chat",
     "git:github.com/nicobailon/visual-explainer",
-    "npm:@amaster.ai/pi-image-gen",
-    "npm:pi-lmstudio",
-    "npm:@shift-labs/pi-rlm"
+    "npm:@shift-labs/pi-rlm",
+    "npm:pi-skill-palette",
+    "npm:@monotykamary/pi-tps",
+    "npm:@realvendex/pi-token-router",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-annotate",
+    "npm:pi-venice",
+    "npm:pi-leader-key"
   ],
   "enabledModels": [
-    "openai-codex/gpt-5.6-luna",
-    "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-terra",
-    "deepseek/deepseek-v4-flash",
-    "deepseek/deepseek-v4-pro",
-    "qwen-token-plan/qwen3.8-max",
-    "qwen-token-plan/glm-5.2",
-    "qwen-token-plan/deepseek-v4-flash-0731"
+    "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-6.1-sol",
+    "openai-codex/gpt-6-astra",
+    "venice/deepseek-v4-flash-0731",
+    "deepseek/deepseek-flash",
+    "strata/qwen3.8-flash-next-iq3_s"
   ],
-  "theme": "catppuccin-mocha",
+  "theme": "gilt",
   "piDiary": {
     "dailyNotesDir": "/mnt/d/data/obsidian-vault/_journals"
   },
   "fullscreenScrollbar": "auto",
-  "tuiMode": "regular",
+  "tuiMode": "fullscreen",
   "compaction": {
     "enabled": true
-  }
+  },
+  "treeFilterMode": "user-only",
+  "hideThinkingBlock": false,
+  "subagents": {
+    "agentOverrides": {
+      "builder": {
+        "skills": [
+          "clean-code"
+        ]
+      }
+    }
+  },
+  "deviceId": "a8ba4933-ae24-4b41-a693-4df61ac99f77",
+  "cacheWarming": "idle",
+  "modelThinkingLevels": {
+    "openai/gpt-6-luna": "max",
+    "openai/gpt-6-astra": "medium",
+    "openai/gpt-6.1-sol": "medium",
+    "openai-codex/gpt-6-luna": "max",
+    "openai-codex/gpt-6.1-sol": "medium"
+  },
+  "showCacheMissNotices": true
 }

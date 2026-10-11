@@ -11,6 +11,18 @@ rsf() {
 c() { code "$@"; }
 ccost() { npx ccusage "${1:-daily}"; }
 
+
+pi-annotate-check() {
+  node -e '
+  const net=require("net");
+  let done=false;
+  const s=net.createConnection(43173,"127.0.0.1");
+  s.on("connect",()=>s.write(JSON.stringify({type:"AUTH",token:process.env.PI_ANNOTATE_WSL_TOKEN})+"\n"));
+  s.on("close",()=>{ if(!done){console.log("bridge reachable but AUTH FAILED (token mismatch?)");process.exit(1);} });
+  s.on("error",(e)=>{console.log("bridge NOT reachable:",e.message,"- is Chrome open with the icon clicked?");process.exit(2);});
+  setTimeout(()=>{done=true;console.log("bridge OK: reachable + token accepted");s.end();},4000);'
+}
+ 
 # aliases
 alias ..='cd ..'
 alias zs='c ~/.local/share/chezmoi'
@@ -46,3 +58,4 @@ alias zad='zellij attach dev'
 alias cm='chezmoi'
 alias bat='batcat'
 alias lg='lazygit'
+alias collie='herdr plugin action invoke start --plugin herdr.collie'
