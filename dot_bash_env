@@ -40,6 +40,10 @@ fi
 # pi tasks cli
 export PIT_HOME="/home/soleone/src/products/pi-tasks-cli"
 
+# Java / Android
+export JAVA_HOME="$HOME/.local/share/jdk/jdk-17.0.20.1+1"
+
+
 # PATH
 path_prepend(){
   case ":$PATH:" in
@@ -56,6 +60,7 @@ path_prepend(){
 [ -d "$HOME/.cargo/bin" ] && path_prepend "$HOME/.cargo/bin"
 [ -d "$BUN_INSTALL/bin" ] && path_prepend "$BUN_INSTALL/bin"
 [ -d "$PIT_HOME/bin" ] && path_prepend "$PIT_HOME/bin"
+[ -d "$JAVA_HOME/bin" ] && path_prepend "$JAVA_HOME/bin"
 
 export PATH
 unset -f path_prepend

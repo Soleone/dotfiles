@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.4.0",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-luna",
+  "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "max",
   "pi-image-gen": {
     "defaultModel": "gpt-image-2"
@@ -24,15 +24,15 @@
     "npm:@plannotator/pi-extension",
     "npm:pi-annotate",
     "npm:pi-venice",
-    "npm:pi-leader-key"
+    "npm:pi-leader-key",
+    "npm:pi-ghost-text"
   ],
   "enabledModels": [
     "openai-codex/gpt-6-luna",
     "openai-codex/gpt-6.1-sol",
     "openai-codex/gpt-6-astra",
-    "venice/deepseek-v4-flash-0731",
-    "deepseek/deepseek-flash",
-    "strata/qwen3.8-flash-next-iq3_s"
+    "strata/qwen3.8-flash-next-iq3_s",
+    "venice/deepseek-v4-1-flash-1017"
   ],
   "theme": "gilt",
   "piDiary": {
@@ -61,7 +61,8 @@
     "openai/gpt-6-astra": "medium",
     "openai/gpt-6.1-sol": "medium",
     "openai-codex/gpt-6-luna": "max",
-    "openai-codex/gpt-6.1-sol": "medium"
+    "openai-codex/gpt-6.1-sol": "high",
+    "venice/deepseek-v4-1-flash-1017": "high"
   },
   "showCacheMissNotices": true
 }

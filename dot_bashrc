@@ -136,3 +136,13 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
 
 # Zoxide
 eval "$(zoxide init bash)"
+
+# Vite+
+. "/home/soleone/.config/vite-plus/env"
+
+# Atuin (auto-generated)
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init bash)"
+
+# Ali (auto-generated)
+source $HOME/.ali/alias_manager.sh

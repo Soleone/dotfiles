@@ -1,4 +1,6 @@
 .sift/
-.engram/cursors/
+.engram/
 .pi/
 artifacts/
+
+**/.claude/settings.local.json

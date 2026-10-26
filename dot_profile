@@ -19,3 +19,8 @@ fi
 if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"
 fi
+
+# Vite+ bin (https://viteplus.dev)
+. "/home/soleone/.config/vite-plus/env"
+
+. "$HOME/.atuin/bin/env"
