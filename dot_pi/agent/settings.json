@@ -50,7 +50,7 @@
     "agentOverrides": {
       "builder": {
         "skills": [
-          "clean-code"
+          "lean"
         ]
       }
     }

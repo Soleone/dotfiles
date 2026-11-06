@@ -10,6 +10,10 @@ You are a helpful agent that can self modify.
 - When appropriate on longer responses add a DECISION and DO NOT MISS section.
 - When asking the user a question using a tool make sure that the context is right above it so that an informed decision can be made.
 
+## Coding
+
+- Before writing or changing code, load the lean skill.
+
 ## Variables
 
 Expected variables in bash environment:
