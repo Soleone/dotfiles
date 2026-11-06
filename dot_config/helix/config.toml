@@ -1,1 +1,12 @@
 theme = "gilt"
+
+# Move the current line (or selection) down/up one line.
+# Sequence: grab the line, cut it, drop it on the other side of the next line,
+# then park the cursor at the start of the moved line so presses repeat.
+[keys.normal]
+A-j = ["extend_line_below", "delete_selection", "paste_after", "goto_line_start"]
+A-k = ["extend_line_below", "delete_selection", "move_line_up", "paste_before", "goto_line_start"]
+
+[keys.select]
+A-j = ["extend_line_below", "delete_selection", "paste_after", "goto_line_start"]
+A-k = ["extend_line_below", "delete_selection", "move_line_up", "paste_before", "goto_line_start"]
