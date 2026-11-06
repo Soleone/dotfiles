@@ -153,17 +153,55 @@ enabled = false
 autorun = "ask"
 
 [keybindings.global]
+next_session = ["alt+down"]
+prev_session = ["alt+up"]
+new_session = ["alt+shift+c"]
+rename_session = ["alt+shift+r"]
+close_session = ["alt+shift+x"]
+
+new_workspace = ["alt+c"]
+prev_workspace = ["alt+left"]
+next_workspace = ["alt+right"]
+rename_workspace = ["alt+r"]
+
+new_window = ["alt+\\"]
+
 prefix_inbox = ["alt+shift+a"]
-new_workspace = ["alt+shift+c"]
-prev_workspace = ["alt+shift+left"]
-next_workspace = ["alt+shift+right"]
-rename_workspace = ["alt+shift+r"]
-new_window = ["alt+c"]
-rename_window = ["alt+r"]
+command_palette = ["ctrl+k"]
+
+# Window mode: alt+number now switches sessions, not workspaces.
+# Workspaces keep alt+left/right (prev/next), alt+c (first empty) and ctrl+space G.
+
+switch_session_1 = ["alt+1"]
+switch_session_2 = ["alt+2"]
+switch_session_3 = ["alt+3"]
+switch_session_4 = ["alt+4"]
+switch_session_5 = ["alt+5"]
+switch_session_6 = ["alt+6"]
+switch_session_7 = ["alt+7"]
+switch_session_8 = ["alt+8"]
+switch_session_9 = ["alt+9"]
+
+[keybindings.workspaces]
+switch_workspace_1 = []
+switch_workspace_2 = []
+switch_workspace_3 = []
+switch_workspace_4 = []
+switch_workspace_5 = []
+switch_workspace_6 = []
+switch_workspace_7 = []
+switch_workspace_8 = []
+switch_workspace_9 = []
 
 [keybindings.terminal_mode]
 terminal_prev_window = []
 terminal_next_window = []
+# These defaults sit on alt+left and alt+right and win over the global
+# scope in terminal mode, which is why alt+arrows moved panes, not workspaces.
+terminal_focus_left = ["alt+shift+left"]
+terminal_focus_right = ["alt+shift+right"]
+terminal_focus_up = ["alt+shift+up"]
+terminal_focus_down = ["alt+shift+down"]
 
 [spotlight]
 enabled = false
@@ -192,3 +230,9 @@ bell = "toast"
 
 [notifications.agent]
 notify = true
+
+[[keybindings.command]]
+key = "alt+shift+e"
+type = "pane"
+command = "hx ."
+description = "Edit current directory"
