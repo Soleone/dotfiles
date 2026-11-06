@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](color_yellow)\
+[](gold_shadow)\
 $directory\
 ${custom.git_clean}\
 ${custom.git_dirty}\
@@ -16,20 +16,20 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:color_blue)"""
+[](fg:raised)"""
 
-palette = 'gruvbox_dark'
+palette = 'gilt'
 
 # Git is rendered as custom mutually-exclusive full segments so the branch,
 # status area, and both powerline dividers all share the same color.
-# Clean repo: aqua. Dirty repo: orange. No repo: direct path -> tools divider.
+# Clean repo: jade text. Dirty repo: copper text. No repo: direct path -> tools divider.
 [custom.git_clean]
 when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -z "$(git status --porcelain)"'
 command = '''
 branch=$(git branch --show-current 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
 printf " %s " "$branch"
 '''
-format = '[](fg:color_yellow bg:color_aqua)[ $output ](fg:color_fg0 bg:color_aqua)[](fg:color_aqua bg:color_blue)'
+format = '[](fg:gold_shadow bg:jade)[ $output ](fg:obsidian bg:jade)[](fg:jade bg:raised)'
 
 [custom.git_dirty]
 when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -n "$(git status --porcelain)"'
@@ -44,34 +44,48 @@ printf "%s" "$status" | grep -qE "^R" && marks="${marks}»"
 git rev-parse --verify refs/stash >/dev/null 2>&1 && marks="${marks}≡"
 printf " %s %s " "$branch" "$marks"
 '''
-format = '[](fg:color_yellow bg:color_orange)[ $output](fg:color_fg0 bg:color_orange)[](fg:color_orange bg:color_blue)'
+format = '[](fg:gold_shadow bg:oxblood)[ $output](fg:obsidian bg:oxblood)[](fg:oxblood bg:raised)'
 
 [custom.no_git]
 when = '! git rev-parse --is-inside-work-tree >/dev/null 2>&1'
 command = 'printf ""'
-format = '[](fg:color_yellow bg:color_blue)'
+format = '[](fg:gold_shadow bg:raised)'
 
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
+# Copied from omarchy-gilt-theme/apps/starship/gilt-palette.toml, plus gilt's
+# bright_jade, bright_oxblood and bright_lapis (bright_blue) from colors.toml
+[palettes.gilt]
+obsidian = "#0D0F12"
+raised = "#181B20"
+parchment = "#D8D1C0"
+ivory = "#F5EBD2"
+taupe = "#918977"
+dusty = "#716957"
+gold = "#D4AF37"
+bright_gold = "#E7C968"
+gold_shadow = "#342D1B"
+oxblood = "#BC6060"
+bright_oxblood = "#D47474"
+copper = "#C27B48"
+jade = "#7FA37A"
+bright_jade = "#9DBB8E"
+verdigris = "#72A5A4"
+lapis = "#6F8FAF"
+bright_lapis = "#8FAECC"
+amethyst = "#9A7AA0"
+bronze = "#8A6240"
+error = "#D47474"
+warning = "#E7C968"
+success = "#9DBB8E"
 
 [username]
 disabled = true
 show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
+style_user = "bg:bright_oxblood fg:obsidian"
+style_root = "bg:bright_oxblood fg:obsidian"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:color_fg0 bg:color_yellow"
+style = "fg:gold bg:gold_shadow"
 format = "[$path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -85,12 +99,12 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:color_aqua"
-format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+style = "bg:jade"
+format = '[[ $symbol $branch ](fg:obsidian bg:jade)]($style)'
 
 [git_status]
-style = "bg:color_orange"
-format = '[[$all_status$ahead_behind ](fg:color_fg0 bg:color_orange)]($style)'
+style = "bg:oxblood"
+format = '[[$all_status$ahead_behind ](fg:obsidian bg:oxblood)]($style)'
 modified = "*"
 untracked = "*"
 deleted = "✘"
@@ -99,81 +113,81 @@ stashed = "≡"
 
 [nodejs]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [c]
 symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [cpp]
 symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [php]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [java]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [python]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version) ](fg:bright_lapis bg:raised)]($style)'
 
 [docker_context]
 symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $context) ](fg:bright_lapis bg:raised)]($style)'
 
 [conda]
-style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $environment) ](fg:bright_lapis bg:raised)]($style)'
 
 [pixi]
-style = "bg:color_bg3"
-format = '[[ $symbol( $version)( $environment) ](fg:color_fg0 bg:color_bg3)]($style)'
+style = "bg:raised"
+format = '[[ $symbol( $version)( $environment) ](fg:parchment bg:raised)]($style)'
 
 [time]
 disabled = true
 time_format = "%R"
-style = "bg:color_bg1"
-format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
+style = "bg:raised"
+format = '[[  $time ](fg:parchment bg:raised)]($style)'
 
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+success_symbol = '[](bold fg:success)'
+error_symbol = '[](bold fg:error)'
+vimcmd_symbol = '[](bold fg:success)'
+vimcmd_replace_one_symbol = '[](bold fg:amethyst)'
+vimcmd_replace_symbol = '[](bold fg:amethyst)'
+vimcmd_visual_symbol = '[](bold fg:gold)'
