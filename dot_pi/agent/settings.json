@@ -29,10 +29,11 @@
   ],
   "enabledModels": [
     "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-6.1-terra",
     "openai-codex/gpt-6.1-sol",
-    "openai-codex/gpt-6-astra",
-    "strata/qwen3.8-flash-next-iq3_s",
-    "venice/deepseek-v4-1-flash-1017"
+    "venice/deepseek-v4-1-flash-1017",
+    "strata/iq3_s",
+    "strata/unsloth-ud-q4_k_xl"
   ],
   "theme": "gilt",
   "piDiary": {
