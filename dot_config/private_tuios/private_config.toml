@@ -122,20 +122,29 @@ leader_key = "ctrl+space"
 [startup]
 tiled = true
 daemon = true
+start_in_terminal_mode = true
 
 [appearance]
 theme = "gilt"
-glyphs = "default"
+glyphs = "gilt"
 border_style = "rounded"
 window_title_position = "top"
 window_button_style = "dots"
-session_colors = true
+session_colors = false
+auto_enter_terminal_on_focus = "all"
 session_border = false
 hide_window_buttons = true
 shared_borders = true
 motion = "full"
 zoom_size = 98
 zoom_max_width = 0
+show_clock = false
+show_ram = false
+dock_workspace_tabs = true
+dock_pill_caps = true
+dock_prefix_indicator = "pill"
+scrollback_lines = 20000
+calm = false
 
 [appearance.sidebar.left]
 enabled = false
@@ -161,3 +170,25 @@ enabled = false
 
 [dock.tabs]
 style = "flat"
+
+[appearance.sidebar]
+width = 26
+sections = "sessions:50,spacer:5,files,spacer:5,git,agents:34"
+row_style = "marker"
+show_counts = false
+density = "normal"
+marquee = true
+group_main = false
+
+[appearance.sidebar.right]
+width = 26
+
+[agents]
+enabled = true
+
+[notifications]
+duration = 2
+bell = "toast"
+
+[notifications.agent]
+notify = true
